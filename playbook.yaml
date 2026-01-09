@@ -1,0 +1,17 @@
+
+- hosts: web
+  become: true
+  tasks:
+    - name: install apache 
+      apt:
+        name:
+          - apache2
+        update_cache: yes
+        state: latest
+    - name: check installation status
+      command: systemctl status apache2
+      register: apache_status
+
+    - name: print the status
+      debug:
+        msg: "{{apache_status.stdout}}"

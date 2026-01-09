@@ -1,0 +1,7 @@
+- hosts: web
+  become: true
+  tasks:
+    - name: create a new directory on host
+      file:
+        path: /icici-dir
+        state: directory

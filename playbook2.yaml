@@ -1,0 +1,8 @@
+- hosts: web
+  become: true
+  gather_facts: False
+  tasks:
+    - name: replace existing HTML Page
+      copy:
+        src: index.html
+        dest: /var/www/html
